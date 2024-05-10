@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS and JavaScript Skills Test</title>
+    <style>
+      html {
+        background-color: rgb(226 226 226);
+      }
+      body {
+        margin: 12px;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+        background-color: rgb(246, 47, 90);
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      p {
+        margin: 0;
+      }
+
+      .navbar {
+        background-color: rgb(249 249 249);
+        display: flex;
+        flex-direction: row;
+      }
+      .navbar__item {
+        padding: 20px;
+      }
+      .navbar__item:hover {
+        background-color: rgb(240 240 240);
+      }
+      .navbar__item:active {
+        background-color: rgb(217, 217, 217);
+      }
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: rgb(226 226 226);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown-content__item {
+        display: flex;
+        min-width: max-content;
+        padding: 20px;
+      }
+      .dropdown-content__item:hover,
+      .active:hover,
+      .active {
+        background-color: rgb(217, 217, 217);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="navbar__item" href="#">Home</a>
+      <a class="navbar__item" href="#">Blog</a>
+      <div class="dropdown navbar__item">
+        <p class="navbar__item-text">Services ▼</p>
+        <div class="dropdown-content">
+          <a class="dropdown-content__item" href="#">Graphic Design</a>
+          <a class="dropdown-content__item" href="#">Website Design</a>
+          <a class="dropdown-content__item" href="#">Python Programming</a>
+          <a class="dropdown-content__item" href="#">PHP Programming</a>
+        </div>
+      </div>
+      <div class="dropdown navbar__item">
+        <p>Tutorials ▼</p>
+        <div class="dropdown-content">
+          <a class="dropdown-content__item" href="#">HTML/CSS</a>
+          <a class="dropdown-content__item" href="#">HTML/CSS</a>
+          <a class="dropdown-content__item" href="#">JavaScript</a>
+          <a class="dropdown-content__item" href="#">React</a>
+          <a class="dropdown-content__item" href="#">Node.js</a>
+        </div>
+      </div>
+      <a class="navbar__item" href="#">Contact</a>
+    </nav>
+
+    <button id="toggleButton">Toggle Mode</button>
+    <script>
+      const navbarItems = document.querySelectorAll(".navbar__item");
+
+      navbarItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navbarItems.forEach((item) => {
+            item.classList.remove("active");
+          });
+          item.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
